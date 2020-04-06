@@ -1,13 +1,16 @@
 #!/bin/bash
 # Script to start the backup script "bkup_rpimage.sh" via simple crontab entry
 
+# Params
 BACKUPDIR=/mnt/Backup/
 BACKUPFILE=$(uname -n)-$(date +%F).img
-SHARE=//rpi.local/nas/Backup
+SHARE=""
 
 # create and mount destination folder
-mkdir -p $BACKUPDIR
-mount -t cifs -o user=,password= $SHARE $BACKUPDIR
+mkdir -p "$BACKUPDIR"
+if [[ -z "$SHARE" ]]; then
+  mount -t cifs -o user=,password= "$SHARE" "$BACKUPDIR"
+fi
 
 #cleanup apt cache
 sudo apt-get clean
@@ -15,8 +18,11 @@ sudo apt-get clean
 # Automounting target
 if [ -d "$BACKUPDIR" ]; then
         # start script
-        bkup_rpimage.sh start -c $BACKUPDIR/$BACKUPFILE
-        pishrink.sh -z $BACKUPDIR/$BACKUPFILE
+        bkup_rpimage.sh start -c "$BACKUPDIR/$BACKUPFILE"
+        pishrink.sh -z "$BACKUPDIR/$BACKUPFILE"
 fi
 
-umount $BACKUPDIR
+if [[ -z "$SHARE" ]]; then
+  umount $BACKUPDIR
+fi
+
