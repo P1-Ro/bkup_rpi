@@ -1,5 +1,5 @@
 #!/bin/bash
-# Script to start the backup script "bkup_rpimage.sh" via simple crontab entry# Target automounten lassen:
+# Script to start the backup script "bkup_rpimage.sh" via simple crontab entry
 
 BACKUPDIR=/mnt/Backup/
 BACKUPFILE=$(uname -n)-$(date +%F).img
