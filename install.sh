@@ -38,7 +38,7 @@ mv backup_rpi.sh /usr/local/bin/
 
 # Install dependecies
 apt update
-apt install pigz rsync
+apt install pigz rsync dialog
 
 # Setup share
 dialog --title "Install backup script" \

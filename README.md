@@ -8,6 +8,6 @@ It also creates cron job which creates backup image once every month in `/mnt/Ba
 ## Installation:
 Easy install with:
 
-    curl "https://github.com/P1-Ro/bkup_rpi/raw/master/install.sh" | sudo bash
+    curl -L "https://github.com/P1-Ro/bkup_rpi/raw/master/install.sh" | sudo bash
     
 Or you can clone this repo and run `install.sh` manually.   
