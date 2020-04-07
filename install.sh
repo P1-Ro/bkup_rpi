@@ -32,7 +32,7 @@ else
 fi
 
 # Install backup script
-wget "https://github.com/P1-Ro/bkup_rpimage/raw/master/backup_rpi.sh"
+wget "https://github.com/P1-Ro/bkup_rpi/raw/master/backup_rpi.sh"
 chmod a+x backup_rpi.sh
 mv backup_rpi.sh /usr/local/bin/
 
