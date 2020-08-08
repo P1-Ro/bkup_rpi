@@ -14,23 +14,11 @@ if hash bkup_rpimage.sh 2>/dev/null; then
 else
   echo "Downloading bkup_rpimage"
   wget -q "https://github.com/lzkelley/bkup_rpimage/raw/master/bkup_rpimage.sh"
+  echo "Patching bkup_rpimage"
+  sed -i "s/gzip >/pigz -9 >/g" bkup_rpimage.sh
   chmod a+x bkup_rpimage.sh
   mv bkup_rpimage.sh /usr/local/bin/
   echo "bkup_rpimage succesfully installed"
-fi
-
-# Check/Install pishrink
-echo "Checking pishrink"
-if hash pishrink.sh 2>/dev/null; then
-  echo "pishrink already installed"
-else
-  echo "Downloading pishrink"
-  wget -q "https://github.com/Drewsif/PiShrink/raw/master/pishrink.sh"
-  echo "Patching pishrink"
-  sed -i "s/gzip -f9/pigz/g" pishrink.sh
-  chmod a+x pishrink.sh
-  mv pishrink.sh /usr/local/bin/
-  echo "pishrink succesfully installed"
 fi
 
 # Install backup script

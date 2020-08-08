@@ -2,8 +2,8 @@
 Script to backup a Raspberry Pi disk image as small as possible
 
 ## What it does:
-This script installs [bkup_rpimage](https://github.com/lzkelley/bkup_rpimage), [PiShrink](https://github.com/Drewsif/PiShrink), backup script and all dependecies.
-It also creates cron job which creates backup image once every month in `/mnt/Backup`  
+This script installs [bkup_rpimage](https://github.com/lzkelley/bkup_rpimage) backup script and all dependencies.
+It also creates cron job which creates backup image once every month in directory you specify.  
 
 ## Installation:
 Easy install with:
